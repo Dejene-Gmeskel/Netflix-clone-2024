@@ -1,14 +1,12 @@
 .banner {
   margin-top: -10vh;
-  height: 80vh;
-  margin-bottom: -80px;
+  height: 448px;
   object-fit: contain;
   color: #fff;
 }
 .banner__contents {
   margin-left: 30px;
-  padding-top: 140px;
-  /* height: 190px; */
+  padding-top: 160px;
 }
 .banner__title {
   font-size: 3rem;
@@ -28,8 +26,8 @@
   color: #fff;
   outline: none;
   border: none;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   border-radius: 0.2vw;
   padding: 1rem 3rem;
   margin-right: 2rem;
@@ -42,7 +40,7 @@
 .banner__button:hover {
   color: #000;
   background-color: #c6c6c6;
-  transition: all0.2s;
+  transition: all 0.2s;
 }
 .banner__fadeBottom {
   height: 40vh;

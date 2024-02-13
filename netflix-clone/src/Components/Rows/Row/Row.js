@@ -39,17 +39,17 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     }
   };
 
-    const opts = {
-      height: "390",
-      width: "100%",
-      playerVars: {
-        autoplay: 1,
-      },
-    };
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
 
   return (
     <div className="row">
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <div className="row__posters">
         {movies?.map((movie, index) => (
           <img
@@ -63,11 +63,14 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
           />
         ))}
       </div>
-      <div style={{ padding: '40px' }}>
-                {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
-            </div>
+      <div>
+        {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+      </div>
     </div>
   );
 };
 
 export default Row;
+
+
+//style={{ padding: "40px" }}

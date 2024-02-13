@@ -3,18 +3,12 @@
   top: 0;
   display: flex;
   justify-content: center;
-  background-color: rgb(148, 132, 132);
-  background-color: rgb(20, 20, 20);
   background-color: transparent;
   height: 10vh;
   color: white;
   transition: all0.5s;
   transition-timing-function: ease-in;
   z-index: 1;
-  /* background-color: red; */
-}
-.nav_black {
-  background-color: rgb(20, 20, 20);
 }
 
 .header_container {
@@ -22,7 +16,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: yellow; */
 }
 .header_left ul {
   width: 140%;
@@ -31,7 +24,12 @@
   align-items: center;
   list-style: none;
   cursor: pointer;
-  /* background-color: lightblue; */
+}
+.header_left ul li {
+  opacity: 0.9;
+}
+.header_left ul li:hover {
+  opacity: 1.2;
 }
 .header_right ul {
   width: 150%;
@@ -39,5 +37,4 @@
   justify-content: space-around;
   list-style: none;
   cursor: pointer;
-  /* background-color: lightgreen; */
 }
