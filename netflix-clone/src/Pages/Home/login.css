@@ -48,7 +48,7 @@ nav button {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  margin-top: 85px;
+  margin-top: 60px;
   color: #fff;
 }
 .header_content h1 {
@@ -72,7 +72,6 @@ nav button {
   align-items: center;
   margin-top: 30px;
   overflow: hidden;
-
   border: 0.8px solid #fff;
 }
 .email_signup input {
@@ -80,7 +79,7 @@ nav button {
   border: 0;
   outline: 0;
   margin-left: 20px;
-  background: rgba(51, 51, 51, 0.5);
+  background: rgba(51, 51, 51, 0.1);
   line-height: 1.5;
   font-size: 1rem;
   color: #fff;
