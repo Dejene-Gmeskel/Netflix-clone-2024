@@ -1,58 +1,40 @@
 import React, { useRef } from "react";
 import "./signup.css";
 import { auth } from "../../firebase";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
-
-const SignUpScreen = () => {
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+const SignUpScreen = ({ onSignIn }) => {
+  // Receive onSignIn function as a prop
+  const emailRegRef = useRef(null);
+  const passwordRegRef = useRef(null);
 
   const register = (e) => {
     e.preventDefault();
-
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
+    const email = emailRegRef.current.value;
+    const password = passwordRegRef.current.value;
     createUserWithEmailAndPassword(auth, email, password)
       .then((authUser) => {
         console.log(authUser);
-        if(authUser) {
-          alert ("your subscription successfully added please sign in")
+        if (authUser) {
+          alert("Your subscription is successfully added. Please sign in.");
         }
       })
       .catch((error) => {
         alert(error.message);
       });
   };
-  const signIn = (e) => {
-    e.preventDefault();
-    signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value).then((authUser)=>{
-        console.log(authUser)
-        if (authUser) {
-          window.location.href = "/";
-        }
-    }).catch(()=>{
-       alert("We have no registered account with this credentials")
-    })
-  };
+
   return (
     <div className="signupScreen">
       <form>
-        <h1>Sign In</h1>
-        <input ref={emailRef} placeholder="Email" type="email" />
-        <input ref={passwordRef} placeholder="password" type="password" />
-        <button type="submit" onClick={signIn}>
-          SignIn
+        <h1>Sign UP</h1>
+        <input ref={emailRegRef} placeholder="Email" type="email" />
+        <input ref={passwordRegRef} placeholder="Password" type="password" />
+        <button type="submit" onClick={register}>
+          Get Access
         </button>
-        <h4>
-          <span className="signupScreen_grey">New to Netflix? </span>
-          <span className="signupScreen_link" onClick={register}>
-            Sign Up now
-          </span>
-        </h4>
+
+         
       </form>
     </div>
   );

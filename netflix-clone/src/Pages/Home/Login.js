@@ -1,22 +1,35 @@
-import React, { useState } from "react";
 import "./login.css";
+import React, { useState } from 'react';
 import logo from "../../Assets/images/logo.png";
-import SignUpScreen from "./SignUpScreen"
+import SignInScreen from "./SignInScreen";
+import SignUpScreen from "./SignUpScreen";
 
 const Login = () => {
-  const [signIn, setSignIn] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+
+  const handleSignInClick = () => {
+    setShowSignIn(true);
+    setShowSignUp(false);
+  };
+
+  const handleSignUpClick = () => {
+    setShowSignUp(true);
+    setShowSignIn(false);
+  };
+
   return (
     <div className="header">
       <nav>
         <img src={logo} alt="logo" className="logo" />
         <div>
-          <button onClick={() => setSignIn(true)}>Sign In</button>
+          <button onClick={handleSignInClick}>Sign In</button>
         </div>
       </nav>
       <div className="header_content">
-        {signIn ? (
-          <SignUpScreen />
-        ) : (
+        {showSignIn && <SignInScreen onSignUpClick={handleSignUpClick} />} {/* Pass function as prop */}
+        {showSignUp && <SignUpScreen />}
+        {!showSignIn && !showSignUp && (
           <>
             <h1>Unlimited movies, TV shows, and more</h1>
             <h3>Watch anywhere. Cancel anytime.</h3>
@@ -26,7 +39,7 @@ const Login = () => {
             </p>
             <form className="email_signup">
               <input type="email" placeholder="Email address" />
-              <button onClick={() => setSignIn(true)} type="submit">
+              <button onClick={handleSignUpClick} type="submit">
                 Get Started
               </button>
             </form>

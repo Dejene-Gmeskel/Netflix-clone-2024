@@ -38,3 +38,18 @@
   list-style: none;
   cursor: pointer;
 }
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+.dropdown_menu ul li {
+  padding-right: 32px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+.dropdown_menu ul li:hover {
+  background-color: #e50914;  
+}

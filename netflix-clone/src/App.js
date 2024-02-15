@@ -1,24 +1,16 @@
 import "./App.css";
 import Home from "./Pages/Home/Home";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Pages/Home/Login";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "./firebase";
-import { useUser } from "../src/Utils/userContext";
 
 const App = () => {
-  const { state, dispatch } = useUser();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
-      if (userAuth) {
-        dispatch({
-          type: "LOGIN",
-          payload: { uid: userAuth.uid, email: userAuth.email },
-        });
-      } else {
-        dispatch({ type: "LOGOUT" });
-      }
+    const unsubscribe = auth.onAuthStateChanged((userAuthin) => {
+      setUser(userAuthin);
     });
 
     return unsubscribe;
@@ -26,12 +18,10 @@ const App = () => {
 
   return (
     <div className="App">
+      {user ? <Navigate to="/" /> : <Navigate to="/login" />}
       <Routes>
-        {!state.user ? (
-          <Route path="/login" element={<Login />} />
-        ) : (
-          <Route path="/" element={<Home />} />
-        )}
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
