@@ -3,8 +3,7 @@ import "./signup.css";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-const SignUpScreen = ({ onSignIn }) => {
-  // Receive onSignIn function as a prop
+const SignUpScreen = () => {
   const emailRegRef = useRef(null);
   const passwordRegRef = useRef(null);
 
@@ -16,7 +15,9 @@ const SignUpScreen = ({ onSignIn }) => {
       .then((authUser) => {
         console.log(authUser);
         if (authUser) {
-          alert("Your subscription is successfully added. Please sign in.");
+          console.log(
+            "Your subscription is successfully added. Please sign in."
+          );
         }
       })
       .catch((error) => {
@@ -33,8 +34,6 @@ const SignUpScreen = ({ onSignIn }) => {
         <button type="submit" onClick={register}>
           Get Access
         </button>
-
-         
       </form>
     </div>
   );

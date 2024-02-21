@@ -11,7 +11,7 @@ import { auth } from "../../firebase";
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const toggleDropdown = () => {
+  const dropDown = () => {
     setShowDropdown(!showDropdown);
   };
 
@@ -52,7 +52,7 @@ const Header = () => {
             <li>
               <AccountBoxIcon />
             </li>
-            <li onClick={toggleDropdown}>
+            <li onClick={dropDown}>
               <ArrowDropDownIcon />
             </li>
           </ul>

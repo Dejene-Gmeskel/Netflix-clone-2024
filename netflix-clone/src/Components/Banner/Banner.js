@@ -10,7 +10,9 @@ const Banner = () => {
     const fetchMovie = async () => {
       try {
         const response = await axios.get(requests.fetchNetflixOriginals);
-        const randomIndex = Math.floor(Math.random() * response.data.results.length);
+        const randomIndex = Math.floor(
+          Math.random() * response.data.results.length
+        );
         setMovie(response.data.results[randomIndex]);
       } catch (error) {
         console.log("Error fetching movie:", error);

@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-const SignInScreen = ({ onSignUpClick }) => { // Accept prop for handling sign up click
+const SignInScreen = ({ onSignUpClick }) => {  
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -35,7 +35,7 @@ const SignInScreen = ({ onSignUpClick }) => { // Accept prop for handling sign u
         </button>
         <h4>
           <span className="signupScreen_grey">New to Netflix? </span>
-          <span className="signupScreen_link" onClick={onSignUpClick}>Sign Up now</span> {/* Call function passed as prop */}
+          <span className="signupScreen_link" onClick={onSignUpClick}>Sign Up now</span> 
         </h4>
       </form>
     </div>

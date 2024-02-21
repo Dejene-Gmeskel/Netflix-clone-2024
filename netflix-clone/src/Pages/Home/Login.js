@@ -27,7 +27,7 @@ const Login = () => {
         </div>
       </nav>
       <div className="header_content">
-        {showSignIn && <SignInScreen onSignUpClick={handleSignUpClick} />} {/* Pass function as prop */}
+        {showSignIn && <SignInScreen onSignUpClick={handleSignUpClick} />} 
         {showSignUp && <SignUpScreen />}
         {!showSignIn && !showSignUp && (
           <>
@@ -39,7 +39,7 @@ const Login = () => {
             </p>
             <form className="email_signup">
               <input type="email" placeholder="Email address" />
-              <button onClick={handleSignUpClick} type="submit">
+              <button onClick={handleSignInClick} type="submit">
                 Get Started
               </button>
             </form>
